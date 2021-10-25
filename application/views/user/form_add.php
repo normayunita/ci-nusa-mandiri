@@ -30,9 +30,9 @@ arrow_back
         <label for="staticRole" class="col-sm-2 col-form-label">Role</label>
         <div class="col-sm-10">
         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="role">
-            <option selected>Administrator</option>
-            <option value="1">Member</option>
-            <option value="2">Non-Member</option>
+            <option value="1">Administrator</option>
+            <option value="2">Member</option>
+            <option value="3">Non-Member</option>
         </select>
         </div>
   </div>
@@ -40,7 +40,7 @@ arrow_back
         <label for="staticStatus" class="col-sm-2 col-form-label">Status</label>
         <div class="col-sm-10">
         <select class="form-select" size="2" aria-label="size 3 select example"  name="status">
-            <option selected value="1">Active</option>
+            <option value="1">Active</option>
             <option value="0">Non-Active</option>
         </select>
         </div>
