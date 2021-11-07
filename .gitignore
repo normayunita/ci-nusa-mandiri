@@ -30,3 +30,6 @@ application/logs/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+
+# disble upload file in folder
+uploads/user_images/*
