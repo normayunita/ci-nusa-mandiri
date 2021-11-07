@@ -20,19 +20,13 @@ class User extends CI_Controller {
             "urldata" => "users"
         ];
 
-         $data = [
-             "nama" => "Norma Yunita",
-             "email" => "normayunita.nyt@nusamandiri.ac.id",
-             "image" => "norma.jpg",
-             "password" => "-screet-",
-             "role_id" => 1,
-             "is_active" => 1,
-             "tanggal_input" => "2021-09-29"
-         ];
+		$data = [
+            "AllData" => $this->UserModel->get_users()
+        ];
 
-         $this->load->view('_template/header', $headerData);
-         $this->load->view('user/user_index', $data);
-         $this->load->view('_template/footer');
+        $this->load->view('_template/header', $headerData);
+        $this->load->view('user/user_index', $data);
+        $this->load->view('_template/footer');
                
     }
 
@@ -53,11 +47,33 @@ class User extends CI_Controller {
     {   
         $this->UserModel->rule();
         if($this->form_validation->run() == true){
-            $this->index();
+            $data = $this->UserModel->get_data();
+            
+            $config = [
+                "upload_path" => "./uploads/user_images/",
+                "allowed_types" => "gif|jpg|jpeg|png",
+                "overwrite" => true
+            ];
+
+            $this->load->library('upload', $config);
+            
+            if (!$this->upload->do_upload('image')){
+                $msg_err = $this->upload->display_errors();
+                $this->session->set_flashdata('error_msg', $msg_err);
+                $this->form_add_view();
+            }else{
+                $upload = $this->upload->data();
+                $data["image"] = $upload["file_name"];
+                $save = $this->UserModel->insert_data($data);
+                $this->index();
+            }
+            
         }else{
+            // jika validasi gagal
             $this->form_add_view();
         }
     }
+    
 
 }
 

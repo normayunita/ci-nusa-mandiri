@@ -5,9 +5,14 @@ arrow_back
 <hr><br>
 
 <?= validation_errors('<div class="alert alert-danger alert-dismissible fade show" role="alert">', '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'); ?>
+<?php  if ($this->session->flashdata('error_msg') ) { ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <?= $this->session->flashdata('error_msg'); ?>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+<?php } ?>
 
-
-<?= form_open('user-create'); ?>
+<?= form_open_multipart('user-create'); ?>
   <div class="mb-3 row">
         <label for="staticFullName" class="col-sm-2 col-form-label">Nama Lengkap</label>
         <div class="col-sm-10">

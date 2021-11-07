@@ -17,16 +17,18 @@ add
         <th>Action</th>
     </tr>
   </thead>
-  <tbody>      
+  <tbody>     
+    <?php foreach($AllData as $row) { ?> 
     <tr>
-        <td><?= $nama; ?></td>
-        <td><?= $email; ?></td>
-        <td><?= $image; ?></td>
-        <td><?= $role_id; ?></td>
-        <td><?= $is_active; ?></td>
-        <td><?= $tanggal_input; ?></td>
+        <td><?= $row->nama; ?></td>
+        <td><?= $row->email; ?></td>
+        <td><?= $row->image; ?></td>
+        <td><?= $row->role_id; ?></td>
+        <td><?= $row->is_active; ?></td>
+        <td><?= $row->tanggal_input; ?></td>
         <td>Edit</td>
     </tr>
+    <?php } ?>
   </tbody>
 </table>
 </div>
