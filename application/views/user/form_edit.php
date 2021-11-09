@@ -12,17 +12,18 @@ arrow_back
             </div>
 <?php } ?>
 
-<?= form_open(''); ?>
+<?= form_open('user-update/' . $oneData->id); ?>
+<input type="hidden" name="id" value="<?= $oneData->id ?>" />
   <div class="mb-3 row">
         <label for="staticFullName" class="col-sm-2 col-form-label">Nama Lengkap</label>
         <div class="col-sm-10">
-        <input type="text" class="form-control" id="staticFullName" name="nama" value="<?= set_value('nama'); ?>" >
+        <input type="text" class="form-control" id="staticFullName" name="nama" value="<?= set_value('nama', $oneData->nama); ?>" >
         </div>
   </div>
   <div class="mb-3 row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
-        <input type="text" class="form-control" id="staticEmail" name="email" value="<?= set_value('email'); ?>" >
+        <input type="text" class="form-control" id="staticEmail" name="email" value="<?= set_value('email', $oneData->email); ?>" >
         </div>
   </div>
   <div class="mb-3 row">
@@ -32,12 +33,12 @@ arrow_back
         </div>
   </div>
   <div class="mb-3 row">
-        <label for="staticRole" class="col-sm-2 col-form-label">Role</label>
+        <label for="staticRole" class="col-sm-2 col-form-label">Role <?= $oneData->role_id ?></label>
         <div class="col-sm-10">
         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="role">
-            <option value="1">Administrator</option>
-            <option value="2">Member</option>
-            <option value="3">Non-Member</option>
+            <option value="1" <?= $oneData->role_id == 1 ? "selected" : "" ?> >Administrator</option>
+            <option value="2" <?= $oneData->role_id == 2 ? "selected" : "" ?> >Member</option>
+            <option value="3"<?= $oneData->role_id == 3 ? "selected" : "" ?> >Non-Member</option>
         </select>
         </div>
   </div>
@@ -45,8 +46,8 @@ arrow_back
         <label for="staticStatus" class="col-sm-2 col-form-label">Status</label>
         <div class="col-sm-10">
         <select class="form-select" size="2" aria-label="size 3 select example"  name="status">
-            <option value="1">Active</option>
-            <option value="0">Non-Active</option>
+            <option value="1" <?= $oneData->is_active == 1 ? "selected" : "" ?> >Active</option>
+            <option value="0" <?= $oneData->is_active == 0 ? "selected" : "" ?> >Non-Active</option>
         </select>
         </div>
   </div>

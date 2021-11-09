@@ -59,6 +59,7 @@ $route = [
     "matematika" => "user/contoh_matematika",
     "userform-add" => "user/form_add_view",
     "user-create" => "user/create",
+    "user-update/(:any)" => "user/update",
 ];
 
 /*

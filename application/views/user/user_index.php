@@ -26,7 +26,9 @@ add
         <td><?= $row->role_id; ?></td>
         <td><?= $row->is_active; ?></td>
         <td><?= $row->tanggal_input; ?></td>
-        <td>Edit</td>
+        <td>
+          <a href="<?= base_url("user-update/".$row->id); ?>">Ubah</a>
+        </td>
     </tr>
     <?php } ?>
   </tbody>

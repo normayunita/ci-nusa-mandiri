@@ -60,6 +60,21 @@ class UserModel extends CI_Model {
         $result = $this->db->insert($this->table, $data);
         return $result;
     }
+
+    public function get_one($id)
+    {
+        $data = $this->db->get_where($this->table, ['id' => $id])->row();
+		return $data;
+    }
+
+    public function update_data($data)
+    {
+        $where = $this->db->where('id', $data['id']);
+        $update = $where->update($this->table, $data);
+        // var_dump($update);
+        // exit();
+        return $update;
+    }
     
 
 }

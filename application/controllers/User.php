@@ -73,6 +73,45 @@ class User extends CI_Controller {
             $this->form_add_view();
         }
     }
+
+    
+
+    public function form_edit_view($id)
+    {
+        $headerData = [
+            "headertitle" => "Users",
+            "headerchild" => "Update User",
+            "urldata" => "users"
+        ];
+		$data = [
+			"oneData" => $this->UserModel->get_one($id)
+		]; 
+
+         $this->load->view('_template/header', $headerData);
+         $this->load->view('user/form_edit', $data);
+         $this->load->view('_template/footer');
+    }
+
+    public function update()
+    {
+		$id = $this->uri->segment('2');
+        $this->UserModel->rule();
+        if($this->form_validation->run() == true)
+        {
+            $data = $this->UserModel->get_data();            
+            $data['id'] = $this->input->post('id');
+            
+            $update = $this->UserModel->update_data($data);
+            if ($update) {                
+               
+               redirect(base_url('users'),'refresh');
+               
+            }
+            $this->form_edit_view($id);
+        }
+        
+        $this->form_edit_view($id);
+    }
     
 
 }
