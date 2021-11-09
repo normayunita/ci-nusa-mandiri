@@ -112,6 +112,16 @@ class User extends CI_Controller {
         
         $this->form_edit_view($id);
     }
+
+    public function delete()
+    {
+        $id = $this->uri->segment('2');
+        $getData = $this->UserModel->get_one($id);
+        if ($getData != null) {
+           $delete = $this->UserModel->delete_data($id);
+        }
+        redirect(base_url('users'),'refresh');
+    }
     
 
 }

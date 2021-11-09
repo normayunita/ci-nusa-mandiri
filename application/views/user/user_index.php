@@ -27,7 +27,9 @@ add
         <td><?= $row->is_active; ?></td>
         <td><?= $row->tanggal_input; ?></td>
         <td>
-          <a href="<?= base_url("user-update/".$row->id); ?>">Ubah</a>
+          <a href="<?= base_url("user-update/".$row->id); ?>">Ubah</a> ||
+          
+          <a href="<?= base_url("user-delete/".$row->id); ?>">Hapus</a>
         </td>
     </tr>
     <?php } ?>
