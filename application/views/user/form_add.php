@@ -37,7 +37,6 @@ arrow_back
         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="role">
             <option value="1">Administrator</option>
             <option value="2">Member</option>
-            <option value="3">Non-Member</option>
         </select>
         </div>
   </div>

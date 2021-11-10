@@ -38,7 +38,6 @@ arrow_back
         <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="role">
             <option value="1" <?= $oneData->role_id == 1 ? "selected" : "" ?> >Administrator</option>
             <option value="2" <?= $oneData->role_id == 2 ? "selected" : "" ?> >Member</option>
-            <option value="3"<?= $oneData->role_id == 3 ? "selected" : "" ?> >Non-Member</option>
         </select>
         </div>
   </div>
