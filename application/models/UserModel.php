@@ -71,8 +71,6 @@ class UserModel extends CI_Model {
     {
         $where = $this->db->where('id', $data['id']);
         $update = $where->update($this->table, $data);
-        // var_dump($update);
-        // exit();
         return $update;
     }
 
@@ -80,6 +78,13 @@ class UserModel extends CI_Model {
     {
         $delete = $this->db->delete($this->table, ['id' => $id]); 
         return $delete;
+    }
+    
+
+    public function get_login_data($data)
+    {
+        $where = $this->db->get_where($this->table, $data)->row();
+        return $where;
     }
     
 

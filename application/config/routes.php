@@ -55,13 +55,20 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route = [
-    "users" => "user",
     "matematika" => "user/contoh_matematika",
+
+    // CRUD Users
+    "users" => "user",
     "userform-add" => "user/form_add_view",
     "user-create" => "user/create",
     "user-update/(:any)" => "user/update",
     "user-delete/(:any)" => "user/delete",
+
+    // For auth
+    "login" => "auth/login",
+    "logout" => "auth/destroy",
 ];
+
 
 /*
 * Controller Siswa

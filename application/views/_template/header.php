@@ -1,3 +1,9 @@
+<?php
+	if (!$this->session->has_userdata('email')) {		
+		redirect(base_url('login'),'refresh');		
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,6 +87,12 @@
 						<li class="nav-item">
 							<a class="nav-link" href="<?= base_url('user'); ?>">Users</a>
 						</li>
+
+						<?php if ($this->session->has_userdata('email')) { ?>							
+						<li class="nav-item">
+							<a class="nav-link" href="<?= base_url('logout'); ?>">Logout</a>
+						</li>
+						<?php } ?>
 						
 					</ul>
 					<form class="d-flex">

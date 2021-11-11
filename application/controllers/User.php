@@ -13,7 +13,6 @@ class User extends CI_Controller {
 
     public function index()
     {
-
         $headerData = [
             "headertitle" => "Users",
             "headerchild" => "Show Data",
