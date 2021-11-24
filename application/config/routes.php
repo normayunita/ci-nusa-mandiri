@@ -67,6 +67,13 @@ $route = [
     // For auth
     "login" => "auth/login",
     "logout" => "auth/destroy",
+
+    //For Kategori
+    "kategori" => "kategori/index",
+    "kategori-all" => "kategori/getAll",
+    "kategori-create" => "kategori/create",
+    "kategori-update" => "kategori/update",
+    "kategori-delete" => "kategori/delete",
 ];
 
 
