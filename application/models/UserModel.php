@@ -86,6 +86,15 @@ class UserModel extends CI_Model {
         $where = $this->db->get_where($this->table, $data)->row();
         return $where;
     }
+
+    public function get_all_join_with_role()
+    {
+        $this->db->select()
+                ->from('user a')
+                ->join('role b', 'b.id =a.role_id')
+                ->order_by("a.tanggal_input", "dessc");
+        return $this->db->get()->result_array();
+    }
     
 
 }

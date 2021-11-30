@@ -22,8 +22,13 @@ class User extends CI_Controller {
 
 		$data = [
             "AllData" => $this->UserModel->get_users(),
-            "RoleData" => $this->RoleModel->get_all()
-        ]; 
+            "RoleData" => $this->RoleModel->get_all(),
+            "AllDataWithJoin" => $this->UserModel->get_all_join_with_role()
+        ];
+
+        
+        echo json_encode($data);
+        exit();
 
         $this->load->view('_template/header', $headerData);
         $this->load->view('user/user_index', $data);
