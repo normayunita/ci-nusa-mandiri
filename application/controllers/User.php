@@ -9,6 +9,7 @@ class User extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('UserModel');
+        $this->load->model('RoleModel');
     }    
 
     public function index()
@@ -20,8 +21,9 @@ class User extends CI_Controller {
         ];
 
 		$data = [
-            "AllData" => $this->UserModel->get_users()
-        ];
+            "AllData" => $this->UserModel->get_users(),
+            "RoleData" => $this->RoleModel->get_all()
+        ]; 
 
         $this->load->view('_template/header', $headerData);
         $this->load->view('user/user_index', $data);

@@ -23,8 +23,24 @@ add
         <td><?= $row->nama; ?></td>
         <td><?= $row->email; ?></td>
         <td><?= $row->image; ?></td>
-        <td><?= $row->role_id; ?></td>
-        <td><?= $row->is_active; ?></td>
+
+        <?php
+
+        //Untuk Role
+          foreach ($RoleData as $r) {
+            if ($r->id == $row->role_id) {
+              echo "<td>" . $r->role . "</td>";
+            }
+          }
+
+        //Untuk Status Aktivaso
+        if ($row->is_active == "1") {
+          echo "<td>Aktif</td>";
+        }else{
+          echo "<td>Non-Aktif</td>";
+        }
+
+        ?> 
         <td><?= $row->tanggal_input; ?></td>
         <td>
           <a href="<?= base_url("user-update/".$row->id); ?>">Ubah</a> ||
